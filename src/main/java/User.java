@@ -20,8 +20,9 @@ public class User {
     }
 
     public static boolean registerUser(User user) {
-        driver.get("https://elenta.lt/registracija");
-        driver.findElement(By.xpath("/html/body/div[4]/div[2]/div[1]/div[2]/div[2]/button[1]/p")).click();
+        boolean output = true;
+        driver.get("https://elenta.lt/prisijungti?returnurl=https%3A%2F%2Felenta.lt%2Fregistracija");
+        driver.findElement(By.xpath("//*[@id=\"form\"]/fieldset/table/tbody/tr[10]/td/p/a")).click();
         WebElement userName = driver.findElement(By.id("UserName"));
         WebElement email = driver.findElement(By.id("Email"));
         WebElement password = driver.findElement(By.id("Password"));
@@ -34,9 +35,28 @@ public class User {
         password2.sendKeys(user.password2);
         submit.click();
 
-      return true;
+
+        List<WebElement> usernameExist = driver.findElements(By.xpath("//*[@id=\"main-container\"]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
+        List<WebElement> validUserName = driver.findElements(By.xpath("//*[@id=\"main-container\"]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
+        if (!usernameExist.isEmpty()){
+            System.out.println(usernameExist.get(0).getText());
+            output = false;
+        }
+        if (!validUserName.isEmpty()){
+            System.out.println(validUserName.get(0).getText());
+            output = false;
+        }
+        return output;
 
     }
 
 
-}
+
+
+
+
+
+    }
+
+
+
