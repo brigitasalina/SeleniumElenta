@@ -11,7 +11,7 @@ public class ElentaRegisterUserTest {
 
 
     @Test
-    public void registerUser(){
+    public void registerUserTest(){
         User user = new User("Brigita", "brigita.salina@gmail.com","tralialia","tralialia");
         assertTrue( User.registerUser(user) );
     }

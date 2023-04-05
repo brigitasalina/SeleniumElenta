@@ -19,7 +19,7 @@ public class User {
         this.password2 = repeatPassword;
     }
 
-    public static boolean registerUser(User user){
+    public static boolean registerUser(User user) {
         driver.get("https://elenta.lt/registracija");
         driver.findElement(By.xpath("/html/body/div[4]/div[2]/div[1]/div[2]/div[2]/button[1]/p")).click();
         WebElement userName = driver.findElement(By.id("UserName"));
@@ -33,7 +33,9 @@ public class User {
         password.sendKeys(user.password);
         password2.sendKeys(user.password2);
         submit.click();
-        return true;
+
+      return true;
+
     }
 
 
