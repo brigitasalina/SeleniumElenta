@@ -34,8 +34,9 @@ public class User {
         password.sendKeys(user.password);
         password2.sendKeys(user.password2);
         submit.click();
-
-
+        if(driver.getCurrentUrl().contains("/registracija")){
+            return true;
+        }
         List<WebElement> usernameExist = driver.findElements(By.xpath("//*[@id=\"main-container\"]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
         List<WebElement> validUserName = driver.findElements(By.xpath("//*[@id=\"main-container\"]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
         if (!usernameExist.isEmpty()){

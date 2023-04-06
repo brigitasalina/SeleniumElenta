@@ -11,24 +11,24 @@ import  static org.testng.Assert.*;
 public class ElentaRegisterUserTest {
 
 
-//    @Test
-//    public void registerUserTest(){
-//      assertTrue(User.registerUser(new User("Brigitalabas", "brigita.salina@gmail.com","._5K%e","._5K%e")));
-//
-//    }
-    @Test
+    @Test(priority = 1)
     public void registerUserTest(){
-        assertTrue(User.registerUser(new User("Brigitalabas2", "brigita.salina00@gmail.com","._5K%e","._5K%e")));
+      assertTrue(User.registerUser(new User("Brigitalabas4", "brigita.salinaza@gmail.com","._5K%e","._5K%e")));
 
     }
-    @Test
+    @Test(priority = 2)
+    public void registerUserT2est(){
+        assertTrue(User.registerUser(new User("Brigitalabas4", "brigita.salinazaza@gmail.com","._5K%e","._5K%e")));
+
+    }
+    @Test(priority = 3)
     public void registerNoUserNameTest(){
-        assertTrue(User.registerUser(new User("", "brigita.salina0@gmail.com","._5K%e","._5K%e")));
+        assertTrue(User.registerUser(new User("", "brigita.salina01@gmail.com","._5K%e","._5K%e")));
 
     }
-    @Test
+    @Test(priority = 4)
     public void registerIncorectUserNameTest(){
-        assertTrue(User.registerUser(new User("/", "brigita.salina1@gmail.com","._5K%e","._5K%e")));
+        assertTrue(User.registerUser(new User("/", "brigita.salina02@gmail.com","._5K%e","._5K%e")));
 
     }
 
